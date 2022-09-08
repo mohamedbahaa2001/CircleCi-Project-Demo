@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "try my new env var"
-          command: echo "text to output here" > output.txt
+          name: "make an output into a txt file"
+          command: echo "text to output here" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
