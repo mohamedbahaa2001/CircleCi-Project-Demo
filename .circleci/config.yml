@@ -10,13 +10,14 @@ commands:
         default: $CIRCLE_WORKFLOW_ID
     steps:
       - run: echo << parameters.print >>
-
+defaults: &top
+  docker:
+    - image: circleci/node:13.8.0
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   try_commands:
-    docker:
-      - image: circleci/node:13.8.0
+    <<: *top
     steps:
       - print_pipeline_id
 
