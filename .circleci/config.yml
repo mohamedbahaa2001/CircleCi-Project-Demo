@@ -19,7 +19,9 @@ jobs:
   try_commands:
     <<: *docker_image
     steps:
-      - print_pipeline_id
+      - run:
+          command: return 1
+
       - run:
           command: echo "failed test"
           when: on_fail
